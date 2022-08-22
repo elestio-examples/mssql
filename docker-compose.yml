@@ -1,0 +1,33 @@
+version: "3"
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:${SOFTWARE_VERSION_TAG}
+    restart: always
+    ports:
+      - "172.17.0.1:18687:1433"
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: ${ADMIN_PASSWORD}
+    volumes:
+      - ./data:/var/opt/mssql/data
+      - ./log:/var/opt/mssql/log
+      - ./secrets:/var/opt/mssql/secrets
+
+  sqlpad:
+    image: sqlpad/sqlpad:latest
+    hostname: "sqlpad"
+    ports:
+      - "172.17.0.1:3430:3000"
+    environment:
+      SQLPAD_ADMIN: "sa"
+      SQLPAD_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      SQLPAD_APP_LOG_LEVEL: info
+      SQLPAD_WEB_LOG_LEVEL: warn
+      SQLPAD_CONNECTIONS__sqlserverdemo__name: SQL Server
+      SQLPAD_CONNECTIONS__sqlserverdemo__driver: sqlserver
+      SQLPAD_CONNECTIONS__sqlserverdemo__host: mssql
+      SQLPAD_CONNECTIONS__sqlserverdemo__database: master
+      SQLPAD_CONNECTIONS__sqlserverdemo__username: sa
+      SQLPAD_CONNECTIONS__sqlserverdemo__password: ${ADMIN_PASSWORD}
+    volumes:
+      - ./sqlpad:/var/lib/sqlpad
