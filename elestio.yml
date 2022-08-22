@@ -18,6 +18,8 @@ environments:
     value: "2022-latest"
   - key: "ADMIN_PASSWORD"
     value: "Xc_random_password_!2P_G"
+  - key: "APP_PASSWORD"
+    value: "random_password"
     
 config:
   runTime: "dockerCompose"
