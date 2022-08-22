@@ -25,7 +25,7 @@ https://aka.ms/ssmsfullsetup
 
 or with any other tool compatible with MSSQL protocol with those credentials:
 
-Host: [CI_CD_DOMAIN]
-Port: 18698
-Login: sa
-Password: Xc[ADMIN_PASSWORD]!2P_G
+    Host: [CI_CD_DOMAIN]
+    Port: 18698
+    Login: sa
+    Password: Xc[ADMIN_PASSWORD]!2P_G
