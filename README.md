@@ -21,11 +21,11 @@ https://aka.ms/ssmsfullsetup
     Host: [CI_CD_DOMAIN],18698
     Auth type: SQL Server Authentication
     Login: sa
-    Password: Xc[APP_PASSWORD]!2P_G
+    Password: Xc[ADMIN_PASSWORD]!2P_G
 
 or with any other tool compatible with MSSQL protocol with those credentials:
 
 Host: [CI_CD_DOMAIN]
 Port: 18698
 Login: sa
-Password: Xc[APP_PASSWORD]!2P_G
+Password: Xc[ADMIN_PASSWORD]!2P_G
