@@ -16,6 +16,7 @@ services:
   sqlpad:
     image: sqlpad/sqlpad:latest
     hostname: "sqlpad"
+    restart: always
     ports:
       - "172.17.0.1:3430:3000"
     environment:
