@@ -14,7 +14,7 @@ services:
       - ./secrets:/var/opt/mssql/secrets
 
   sqlpad:
-    image: sqlpad/sqlpad:latest
+    image: sqlpad/sqlpad:7.2
     hostname: "sqlpad"
     restart: always
     ports:
